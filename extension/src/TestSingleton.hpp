@@ -4,21 +4,22 @@
 #include <godot_cpp/core/class_db.hpp>
 
 namespace OpenVic2 {
-	class TestSingleton : public godot::Object
-	{
-		GDCLASS(TestSingleton, godot::Object);
+    class TestSingleton : public godot::Object
+    {
+        GDCLASS(TestSingleton, godot::Object)
 
-		static TestSingleton *singleton;
+        static TestSingleton *singleton;
 
-	protected:
-		static void _bind_methods();
+    protected:
+        static void _bind_methods();
 
-	public:
-		static TestSingleton *get_singleton();
+    public:
+        static TestSingleton *get_singleton();
 
-		TestSingleton();
-		~TestSingleton();
+        /// Godot will automatically call constructors and destructors.
+        TestSingleton();
+        ~TestSingleton();
 
-		void hello_singleton();
-	};
+        void hello_singleton();
+    };
 }

@@ -6,31 +6,35 @@
 using namespace godot;
 using namespace OpenVic2;
 
+/// Common singleton structure when using Godot.
 TestSingleton *TestSingleton::singleton = nullptr;
 
 void TestSingleton::_bind_methods()
 {
-	ClassDB::bind_method(D_METHOD("hello_singleton"), &TestSingleton::hello_singleton);
+    ClassDB::bind_method(D_METHOD("hello_singleton"), &TestSingleton::hello_singleton);
 }
 
 TestSingleton *TestSingleton::get_singleton()
 {
-	return singleton;
+    return singleton;
 }
 
 TestSingleton::TestSingleton()
 {
-	ERR_FAIL_COND(singleton != nullptr);
-	singleton = this;
+    /// Runtime error logging macro for if check is false
+    ERR_FAIL_COND(singleton != nullptr);
+    singleton = this;
 }
 
 TestSingleton::~TestSingleton()
 {
-	ERR_FAIL_COND(singleton != this);
-	singleton = nullptr;
+    /// Runtime error logging macro for if check is false
+    ERR_FAIL_COND(singleton != this);
+    singleton = nullptr;
 }
 
 void TestSingleton::hello_singleton()
 {
-	UtilityFunctions::print("Hello GDExtension Singleton!");
+    /// UtilityFunctions::print prints both to the console/terminal, meaning stdout, and to Godot's output logger.
+    UtilityFunctions::print("Hello GDExtension Singleton!");
 }

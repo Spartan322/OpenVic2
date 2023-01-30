@@ -4,3 +4,41 @@
 
 [node name="StartNode" type="Node"]
 script = ExtResource("1_6ch7h")
+
+[node name="UIRoot" type="TopLevelUI" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ListOfUIElements" type="VBoxContainer" parent="UIRoot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OpenVic2Label" type="Label" parent="UIRoot/ListOfUIElements"]
+layout_mode = 2
+text = "OpenVic2"
+horizontal_alignment = 1
+
+[node name="OpenVic2Button" type="Button" parent="UIRoot/ListOfUIElements"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Click For Message"
+
+[node name="PanelContainer" type="PanelContainer" parent="UIRoot/ListOfUIElements"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UIRoot/ListOfUIElements/PanelContainer"]
+layout_mode = 2
+
+[node name="OpenVic2MsgList" type="VBoxContainer" parent="UIRoot/ListOfUIElements/PanelContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[connection signal="ready" from="UIRoot" to="." method="_on_ui_root_ready"]
