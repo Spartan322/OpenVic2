@@ -24,6 +24,12 @@ func get_window_mode_from_screen_mode(screen_mode : int) -> Window.Mode:
 		_:
 			return Window.MODE_EXCLUSIVE_FULLSCREEN
 
+func _ready():
+	get_viewport().get_window().size_changed.connect(_on_window_size_changed)
+
+func _on_window_size_changed():
+	selected = get_screen_mode_from_window_mode(get_viewport().get_window().mode)
+
 func _on_item_selected(index : int):
 	print("Selected index: %d" % index)
 

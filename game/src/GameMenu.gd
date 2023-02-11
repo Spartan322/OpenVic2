@@ -1,5 +1,7 @@
 extends Control
 
+func _ready():
+	Console.options.output_overlay = false
 
 func _on_main_menu_options_button_pressed():
 	$OptionsMenu.toggle_locale_button_visibility(false)

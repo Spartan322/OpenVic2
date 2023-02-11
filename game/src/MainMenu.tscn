@@ -37,7 +37,6 @@ layout_mode = 2
 
 [node name="NewGameButton" type="Button" parent="VBox/Center/VBox" node_paths=PackedStringArray("shortcut_context")]
 layout_mode = 2
-focus_neighbor_top = NodePath("../ExitButton")
 shortcut_context = NodePath("")
 text = "New Game"
 

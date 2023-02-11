@@ -13,6 +13,10 @@ signal reset_settings()
 var _settings_file_path := "user://" + user_settings_file_path
 var _settings_file := ConfigFile.new()
 
+func save_settings_to_file():
+	save_settings.emit(_settings_file)
+	_settings_file.save(_settings_file_path)
+
 func _ready():
 	# Prepare options menu before loading user settings
 
@@ -41,6 +45,9 @@ func _ready():
 	back_button.pressed.connect(_on_back_button_pressed)
 	button_list.add_child(back_button)
 
+	Console.register_env("OptionsMenu", OptionsMenuPankuEnv)
+	OptionsMenuPankuEnv.call_options_menu_save.connect(save_settings_to_file)
+
 	get_viewport().get_window().close_requested.connect(_on_window_close_requested)
 
 func _notification(what):
@@ -59,8 +66,7 @@ func _on_ear_exploder_toggled(button_pressed):
 
 
 func _on_back_button_pressed():
-	save_settings.emit(_settings_file)
-	_settings_file.save(_settings_file_path)
+	save_settings_to_file()
 	back_button_pressed.emit()
 
 
