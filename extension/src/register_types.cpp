@@ -5,6 +5,7 @@
 #include <godot_cpp/godot.hpp>
 #include <godot_cpp/classes/engine.hpp>
 
+#include "DataTexture2D.hpp"
 #include "TestSingleton.hpp"
 #include "Simulation.hpp"
 
@@ -27,6 +28,8 @@ void initialize_openvic2_types(ModuleInitializationLevel p_level)
 	ClassDB::register_class<Simulation>();
 	_simulation = memnew(Simulation);
 	Engine::get_singleton()->register_singleton("Simulation", Simulation::get_singleton());
+
+	ClassDB::register_class<DataTexture2D>();
 
 }
 
