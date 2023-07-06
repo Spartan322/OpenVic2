@@ -1,5 +1,5 @@
 extends RefCounted
-class_name ShaderManagerSingleton
+class_name ShaderManager
 
 const param_province_shape_tex : StringName = &"province_shape_tex"
 const param_province_shape_subdivisions : StringName = &"province_shape_subdivisions"
@@ -9,7 +9,7 @@ const param_selected_index : StringName = &"selected_index"
 const param_terrain_tex : StringName = &"terrain_tex"
 const param_terrain_tile_factor : StringName = &"terrain_tile_factor"
 
-func set_up_shader(material : Material, add_cosmetic_textures : bool) -> Error:
+static func set_up_shader(material : Material, add_cosmetic_textures : bool) -> Error:
 	# Shader Material
 	if material == null:
 		push_error("material is null!")

@@ -1,5 +1,5 @@
 extends RefCounted
-class_name OptionsSingleton
+class_name OptionsEventsObject
 
 signal save_settings(save_file: ConfigFile)
 signal load_settings(load_file: ConfigFile)
